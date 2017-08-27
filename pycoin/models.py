@@ -25,11 +25,11 @@ class LbcAd:
     def __str__(self):
         return '{s.list_time} {s.price} {s.subject} {s.city} {s.category_id} {s.category_name} {s.url}'.format(s=self)
 
-    def category_within(self, categories):
-        return self.category_id in categories
+    def category_within(self, categories=None):
+        return categories is None or self.category_id in categories
 
-    def department_within(self, departments):
-        return self.dpt_code in departments
+    def department_within(self, departments=None):
+        return departments is None or self.dpt_code in departments
 
     def price_within(self, price_min=0, price_max=math.inf):
         return self.price > price_min and self.price < price_max
